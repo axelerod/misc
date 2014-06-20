@@ -7,25 +7,36 @@ package burov;
  */
 public class CounterRunner {
 
-	private int counter;
+    private Container<Integer> counter = new Container<Integer>(new Integer(0));
 
-	public void runCounter() {
-		Runnable runnable1 = getRunnable(0);
-		Runnable runnable2 = getRunnable(1);
-		new Thread(runnable1).start();
-		new Thread(runnable2).start();
-	}
+    public void runCounter() throws InterruptedException{
+        Thread r1 = startRunnable(0);
+        Thread r2 = startRunnable(1);
+        r1.join();
+        r2.join();
+    }
 
-	private Runnable getRunnable(final int condition) {
-		return new Runnable() {
-			@Override
-			public void run() {
-				try {
-					new SharedCounter(counter, condition).increasecounter();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		};
-	}
+    private Thread startRunnable(int condition) throws InterruptedException {
+        Runnable runnable1 = getRunnable(condition);
+
+        Thread thread = new Thread(runnable1);
+        thread.start();
+        return thread;
+    }
+
+    private Runnable getRunnable(final int condition) throws InterruptedException{
+        return new Runnable() {
+            public void run(){
+                try {
+                    new SharedCounter(counter, condition).increasecounter();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e) ;
+                }
+            }
+        };
+    }
+
+    public Container<Integer> getCounter() {
+        return counter;
+    }
 }
