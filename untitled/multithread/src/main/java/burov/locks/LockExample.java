@@ -8,4 +8,7 @@ package burov.locks;
  * To change this template use File | Settings | File Templates.
  */
 public class LockExample {
+
+    public LockExample() {
+    }
 }
