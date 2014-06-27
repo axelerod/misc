@@ -5,32 +5,33 @@ package burov;
  *
  * @author oburov
  */
-public class CounterRunner {
+public abstract class CounterRunner {
 
     private Container<Integer> counter = new Container<Integer>(new Integer(0));
 
-    public void runCounter() throws InterruptedException{
-        Thread r1 = startRunnable(0);
-        Thread r2 = startRunnable(1);
-        r1.join();
-        r2.join();
-    }
+    private ConditionChecker checker = new ConditionChecker() {
+        public boolean condition(int value, int divisor, int result) {
+            return value % divisor == result;
+        }
+    };
 
-    private Thread startRunnable(int condition) throws InterruptedException {
-        Runnable runnable1 = getRunnable(condition);
+    protected Thread startRunnable(int condition, int divisor) throws InterruptedException {
+        Runnable runnable1 = getRunnable(condition, divisor);
 
         Thread thread = new Thread(runnable1);
         thread.start();
         return thread;
     }
 
-    private Runnable getRunnable(final int condition) throws InterruptedException{
+    public abstract void runCounter() throws InterruptedException;
+
+    private Runnable getRunnable(final int condition, final int divisor) throws InterruptedException {
         return new Runnable() {
-            public void run(){
+            public void run() {
                 try {
-                    new SharedCounter(counter, condition).increasecounter();
+                    new SharedCounter(counter, condition, 100, divisor, checker).increasecounter();
                 } catch (InterruptedException e) {
-                    throw new RuntimeException(e) ;
+                    throw new RuntimeException(e);
                 }
             }
         };
