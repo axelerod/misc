@@ -10,5 +10,6 @@ package burov.locks;
 public class LockExample {
 
     public LockExample() {
+
     }
 }
