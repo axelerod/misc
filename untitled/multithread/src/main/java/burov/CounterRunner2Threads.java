@@ -10,8 +10,8 @@ package burov;
 public class CounterRunner2Threads extends CounterRunner {
     public void runCounter() throws InterruptedException {
         int divisor = 2;
-        Thread r1 = startRunnable(0, divisor);
-        Thread r2 = startRunnable(1, divisor);
+        Thread r1 = getThread(0, divisor, 100);
+        Thread r2 = getThread(1, divisor, 100);
         r1.join();
         r2.join();
     }

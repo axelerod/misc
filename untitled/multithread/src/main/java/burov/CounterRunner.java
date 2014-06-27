@@ -15,8 +15,8 @@ public abstract class CounterRunner {
         }
     };
 
-    protected Thread startRunnable(int condition, int divisor) throws InterruptedException {
-        Runnable runnable1 = getRunnable(condition, divisor);
+    protected Thread getThread(int condition, int divisor, int bound) throws InterruptedException {
+        Runnable runnable1 = getRunnable(condition, divisor, bound);
 
         Thread thread = new Thread(runnable1);
         thread.start();
@@ -25,11 +25,11 @@ public abstract class CounterRunner {
 
     public abstract void runCounter() throws InterruptedException;
 
-    private Runnable getRunnable(final int condition, final int divisor) throws InterruptedException {
+    private Runnable getRunnable(final int condition, final int divisor, final int bound) throws InterruptedException {
         return new Runnable() {
             public void run() {
                 try {
-                    new SharedCounter(counter, condition, 100, divisor, checker).increasecounter();
+                    new SharedCounter(counter, condition, bound, divisor, checker).increasecounter();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
