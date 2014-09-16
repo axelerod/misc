@@ -14,7 +14,7 @@ public class BinarySearchChain implements Search {
 		ChainElement chainElement = getStartChainElement();
 
 		// start chain
-		return chainElement.findIndex(new ArraySegment(array, targetValue, 0, array.length));
+		return chainElement.findIndex(new ArraySegment(array, targetValue, 0, array.length -1));
 	}
 
 	private IsSingleChainElement getStartChainElement() {
