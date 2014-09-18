@@ -13,6 +13,8 @@
         <module>array-utils</module>
         <module>list</module>
         <module>tricks</module>
+        <module>sql</module>
+        <module>tasks</module>
     </modules>
 
 
