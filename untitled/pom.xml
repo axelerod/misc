@@ -12,6 +12,7 @@
         <module>multithread</module>
         <module>array-utils</module>
         <module>list</module>
+        <module>tricks</module>
     </modules>
 
 
