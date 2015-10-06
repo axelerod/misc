@@ -1,0 +1,10 @@
+# IDE Files #
+*.idea
+*.iml
+atlassian-ide-plugin.xml
+
+# Build artifacts #
+target/
+
+# OS Specific files #
+.DS_Store
