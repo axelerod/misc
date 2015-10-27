@@ -1,9 +1,12 @@
 package burov.deadlock;
 
-import junit.framework.TestCase;
+import org.junit.Ignore;
+import org.junit.Test;
 
-public class PerformDeadlockTest extends TestCase {
+@Ignore
+public class PerformDeadlockTest {
 
+	@Test
 	public void testDoStuff() throws Exception {
 		PerformDeadlock performDeadlock = new PerformDeadlock();
 		performDeadlock.doStuff();
