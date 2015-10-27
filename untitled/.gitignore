@@ -1,6 +1,7 @@
 # IDE Files #
 *.idea
 *.iml
+.idea
 atlassian-ide-plugin.xml
 
 # Build artifacts #
