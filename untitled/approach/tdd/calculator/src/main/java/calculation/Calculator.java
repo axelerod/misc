@@ -13,9 +13,13 @@ public class Calculator {
             return Integer.valueOf(numbersAsString);
         }
         if (splitted.length == 2) {
-            return Integer.parseInt(splitted[0]) + Integer.parseInt(splitted[1]);
+            return toInt(splitted[0]) + toInt(splitted[1]);
         }
 
-        return Integer.parseInt(splitted[0]) + Integer.parseInt(splitted[1]) + Integer.parseInt(splitted[2]);
+        return toInt(splitted[0]) + toInt(splitted[1]) + toInt(splitted[2]);
+    }
+
+    private int toInt(String s) {
+        return Integer.parseInt(s);
     }
 }
