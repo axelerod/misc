@@ -18,4 +18,9 @@ public class CalculatorTest {
     public void shouldAcceptEmptyValue() {
         assertEquals(0, calculator.add(""));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowExceptionInCaseNullIsPassed() {
+        calculator.add(null);
+    }
 }
