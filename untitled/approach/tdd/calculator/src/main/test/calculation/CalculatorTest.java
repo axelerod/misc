@@ -6,14 +6,16 @@ import static junit.framework.Assert.assertEquals;
 
 public class CalculatorTest {
 
+    private Calculator calculator = new Calculator();
+
     @Test
     public void shouldReturnNumbersInCaseOneNumberPassed() {
 
-        assertEquals(45, new Calculator().add("45"));
+        assertEquals(45, calculator.add("45"));
     }
 
     @Test
     public void shouldAcceptEmptyValue() {
-        assertEquals(0, new Calculator().add(""));
+        assertEquals(0, calculator.add(""));
     }
 }
