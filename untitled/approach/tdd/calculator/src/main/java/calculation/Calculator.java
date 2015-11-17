@@ -12,6 +12,10 @@ public class Calculator {
         if (splitted.length == 1) {
             return Integer.valueOf(numbersAsString);
         }
-        return Integer.parseInt(splitted[0]) + Integer.parseInt(splitted[1]);
+        if (splitted.length == 2) {
+            return Integer.parseInt(splitted[0]) + Integer.parseInt(splitted[1]);
+        }
+
+        return Integer.parseInt(splitted[0]) + Integer.parseInt(splitted[1]) + Integer.parseInt(splitted[2]);
     }
 }
