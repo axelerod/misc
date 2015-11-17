@@ -33,4 +33,9 @@ public class CalculatorTest {
     public void shouldReturnSumOfThreeNumbers() {
         assertEquals(12, calculator.add("3,4,5"));
     }
+
+    @Test
+    public void shouldReturnSumOfAnyNumberOfNumcbers() {
+        assertEquals(35, calculator.add("2,3,4,5,6,7,8"));
+    }
 }
