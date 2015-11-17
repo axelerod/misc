@@ -5,18 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>burov</groupId>
-    <artifactId>misc</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>tdd</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <modules>
-        <module>multithread</module>
-        <module>array-utils</module>
-        <module>list</module>
-        <module>tricks</module>
-        <module>sql</module>
-        <module>tasks</module>
-        <module>approach</module>
+        <module>calculator</module>
     </modules>
-
-
 </project>
