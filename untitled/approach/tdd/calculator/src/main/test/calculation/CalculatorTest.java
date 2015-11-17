@@ -30,11 +30,6 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldAcceptNewLineCharAsSeparator() {
-        assertEquals(5, calculator.add("2\n3"));
-    }
-
-    @Test
     public void shouldAcceptBothNewLineAndCommaCharacters() {
         assertEquals(9, calculator.add("2\n3,4"));
     }
