@@ -28,4 +28,9 @@ public class CalculatorTest {
     public void shouldReturnSumOfTwoNumbers() {
         assertEquals(7, calculator.add("3,4"));
     }
+
+    @Test
+    public void shouldReturnSumOfThreeNumbers() {
+        assertEquals(12, calculator.add("3,4,5"));
+    }
 }
