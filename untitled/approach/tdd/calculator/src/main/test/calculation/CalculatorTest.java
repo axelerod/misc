@@ -36,6 +36,6 @@ public class CalculatorTest {
 
     @Test
     public void shouldAcceptBothNewLineAndCommaCharacters() {
-        assertEquals(12, calculator.add("2\n3,4"));
+        assertEquals(9, calculator.add("2\n3,4"));
     }
 }
