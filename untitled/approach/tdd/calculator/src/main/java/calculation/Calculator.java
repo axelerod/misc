@@ -2,11 +2,13 @@ package calculation;
 
 public class Calculator {
     public int add(String numbersAsString) {
-        if (numbersAsString == null) {
+        if (numbersAsString == null)
             throw new IllegalArgumentException("Null not acceptable!");
-        }
-        if ("".equals(numbersAsString)) return 0;
+
+        if (numbersAsString.isEmpty()) return 0;
+
         String[] splitted = numbersAsString.split(",");
+
         if (splitted.length == 1) {
             return Integer.valueOf(numbersAsString);
         }
