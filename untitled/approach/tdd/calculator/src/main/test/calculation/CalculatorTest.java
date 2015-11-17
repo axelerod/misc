@@ -12,5 +12,8 @@ public class CalculatorTest {
         assertEquals(45, new Calculator().add("45"));
     }
 
-
+    @Test
+    public void shouldAcceptEmptyValue() {
+        assertEquals(0, new Calculator().add(""));
+    }
 }
