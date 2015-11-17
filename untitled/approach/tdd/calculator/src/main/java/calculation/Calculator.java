@@ -10,7 +10,7 @@ public class Calculator {
         String[] splitted = numbersAsString.split(",");
 
         if (splitted.length == 1) {
-            return Integer.valueOf(numbersAsString);
+            return toInt(numbersAsString);
         }
         if (splitted.length == 2) {
             return toInt(splitted[0]) + toInt(splitted[1]);
