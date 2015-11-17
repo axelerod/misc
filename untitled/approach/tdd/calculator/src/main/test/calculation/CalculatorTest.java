@@ -23,4 +23,9 @@ public class CalculatorTest {
     public void shouldThrowExceptionInCaseNullIsPassed() {
         calculator.add(null);
     }
+
+    @Test
+    public void shouldReturnSumOfTwoNumbers() {
+        assertEquals(7, calculator.add("3,4"));
+    }
 }
