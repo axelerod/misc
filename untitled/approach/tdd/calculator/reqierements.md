@@ -1,5 +1,5 @@
 * Create a simple String calculator with a method int Add(string numbers)
-~~* Should return number in case there is one argument.~~
+*~~ Should return number in case there is one argument.~~
 * The method can take 0, 1 or 2 numbers, and will return their sum (for an empty string it will return 0) for example “” or “1” or “1,2”
 * Allow the Add method to handle an unknown amount of numbers
 * Allow the Add method to handle new lines between numbers (instead of commas).
