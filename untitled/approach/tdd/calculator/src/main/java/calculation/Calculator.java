@@ -10,7 +10,12 @@ public class Calculator {
 
         if (numbersAsString.isEmpty()) return 0;
 
-        String[] splitted = numbersAsString.split(",");
+        String[] splitted;
+        if (!numbersAsString.contains(",")) {
+            splitted = numbersAsString.split("\\v");
+        } else {
+            splitted = numbersAsString.split(",");
+        }
 
         return StreamSupport.stream(Arrays.spliterator(splitted), false).mapToInt(Integer::parseInt).reduce(0, (a, b) -> a += b);
     }
