@@ -1,5 +1,8 @@
 package calculation;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 class CustomSplitter extends Splitter {
     public CustomSplitter(String delimiterAndNumbers) {
         super(delimiterAndNumbers);
@@ -11,7 +14,15 @@ class CustomSplitter extends Splitter {
         String customDelimiter = delimiterAndNumbers.substring(2, newLineIndex);
 
         if (delimiterInBrackets(customDelimiter)) {
-            customDelimiter = customDelimiter.substring(1, customDelimiter.length() - 1);
+            Pattern pattern = Pattern.compile("(\\[.+?\\])+?");
+            Matcher matcher = pattern.matcher(customDelimiter);
+            matcher.find();
+            String group = matcher.group();
+            customDelimiter = group.substring(1, group.length() -1);
+            while (matcher.find()) {
+                String group1 = matcher.group();
+                customDelimiter = customDelimiter + "|" +group1.substring(1, group1.length() -1);
+            }
         }
 
         String effectiveDelimiters = DEFAULT_DELIMITERS + "|" + customDelimiter;

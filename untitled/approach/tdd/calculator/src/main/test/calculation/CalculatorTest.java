@@ -66,6 +66,6 @@ public class CalculatorTest {
 
     @Test
     public void shouldSupportMultipleDelimitersInBrackets() {
-        assertEquals(2 + 3 + 4, calculator.add("//[-][d]\n2-3d4"));
+        assertEquals(2 + 3 + 4, calculator.add("//[-][<]\n2-3<4"));
     }
 }
