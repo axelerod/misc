@@ -19,35 +19,7 @@ public class Calculator {
     }
 
     private String[] split(String delimiterAndNumbers) {
-        return getSplitter(delimiterAndNumbers).split();
+        return SplitterFactory.getSplitter(delimiterAndNumbers).split();
     }
 
-    private Splitter getSplitter(String delimiterAndNumbers) {
-        return new Splitter(delimiterAndNumbers);
-    }
-
-    private class Splitter {
-        private String delimiterAndNumbers;
-
-        public Splitter(String delimiterAndNumbers) {
-            this.delimiterAndNumbers = delimiterAndNumbers;
-        }
-
-        public String[] split() {
-            String effectiveDelimiters;
-            String delimitedNumbers;
-
-            if (delimiterAndNumbers.contains("//")) {
-                String customDelimiter = delimiterAndNumbers.substring(2,3);
-                effectiveDelimiters = DEFAULT_DELIMITERS + "|" + customDelimiter;
-                delimitedNumbers = delimiterAndNumbers.substring(4);
-                return delimitedNumbers.split(effectiveDelimiters);
-            } else {
-                effectiveDelimiters = DEFAULT_DELIMITERS;
-                delimitedNumbers = delimiterAndNumbers;
-                return delimitedNumbers.split(effectiveDelimiters);
-            }
-
-        }
-    }
 }
