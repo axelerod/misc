@@ -5,8 +5,6 @@ import java.util.stream.StreamSupport;
 
 public class Calculator {
 
-    public static final String DEFAULT_DELIMITERS = ",|\\v";
-
     public int add(String delimiterAndNumbers) {
         if (delimiterAndNumbers == null)
             throw new IllegalArgumentException("Null not acceptable!");
@@ -21,5 +19,4 @@ public class Calculator {
     private String[] split(String delimiterAndNumbers) {
         return SplitterFactory.getSplitter(delimiterAndNumbers).split();
     }
-
 }
