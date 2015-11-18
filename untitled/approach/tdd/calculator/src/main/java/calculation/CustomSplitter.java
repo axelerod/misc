@@ -7,9 +7,10 @@ class CustomSplitter extends Splitter {
 
     @Override
     public String[] split() {
-        String customDelimiter = delimiterAndNumbers.substring(2,3);
+        int newLineIndex = delimiterAndNumbers.indexOf("\n");
+        String customDelimiter = delimiterAndNumbers.substring(2, newLineIndex);
         String effectiveDelimiters = DEFAULT_DELIMITERS + "|" + customDelimiter;
-        String delimitedNumbers = delimiterAndNumbers.substring(4);
+        String delimitedNumbers = delimiterAndNumbers.substring(newLineIndex + 1);
         return delimitedNumbers.split(effectiveDelimiters);
     }
 }
