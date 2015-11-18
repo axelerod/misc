@@ -38,4 +38,9 @@ public class CalculatorTest {
     public void shouldBeAbleToPassCustomDelimiter() {
         assertEquals(9, calculator.add("//;\n2;3;4"));
     }
+
+    @Test
+    public void shouldSupportDefaultAndCustomDelimiters() {
+        assertEquals(2 + 3 + 4 + 5, calculator.add("//;\n2;3\n4,5"));
+    }
 }
