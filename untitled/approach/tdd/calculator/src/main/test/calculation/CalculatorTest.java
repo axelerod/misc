@@ -59,4 +59,8 @@ public class CalculatorTest {
         assertEquals(2 + 3 + 4, calculator.add("2,3,1001,4"));
     }
 
+    @Test
+    public void shouldSupportDelimetersPassedInSquareBrackets() {
+        assertEquals(2 + 3+ 4, calculator.add("//[---]\n2---3---4"));
+    }
 }
