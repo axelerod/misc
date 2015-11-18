@@ -60,7 +60,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldSupportDelimetersPassedInSquareBrackets() {
+    public void shouldSupportDelimitersPassedInSquareBrackets() {
         assertEquals(2 + 3+ 4, calculator.add("//[---]\n2---3---4"));
     }
 }
