@@ -10,7 +10,13 @@ public class Calculator {
 
         if (numbersAsString.isEmpty()) return 0;
 
-        String[] splitted = numbersAsString.split(",|\\v");
+        String delimiter = ",|\\v";
+        if (numbersAsString.contains("//")) {
+            delimiter = numbersAsString.substring(2,3);
+            numbersAsString = numbersAsString.substring(4);
+        }
+
+        String[] splitted = numbersAsString.split(delimiter);
 
         return StreamSupport.stream(Arrays.spliterator(splitted), false).mapToInt(Integer::parseInt).reduce(0, (a, b) -> a += b);
     }
