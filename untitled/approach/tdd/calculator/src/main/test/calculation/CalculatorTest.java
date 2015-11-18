@@ -26,17 +26,17 @@ public class CalculatorTest {
 
     @Test
     public void shouldReturnSumOfAnyNumberOfNumcbers() {
-        assertEquals(35, calculator.add("2,3,4,5,6,7,8"));
+        assertEquals(2 + 3 + 4 + 5 + 6 + 7 + 8, calculator.add("2,3,4,5,6,7,8"));
     }
 
     @Test
     public void shouldAcceptBothNewLineAndCommaCharacters() {
-        assertEquals(9, calculator.add("2\n3,4"));
+        assertEquals(2 + 3 + 4, calculator.add("2\n3,4"));
     }
 
     @Test
     public void shouldBeAbleToPassCustomDelimiter() {
-        assertEquals(9, calculator.add("//;\n2;3;4"));
+        assertEquals(2 + 3 + 4, calculator.add("//;\n2;3;4"));
     }
 
     @Test
