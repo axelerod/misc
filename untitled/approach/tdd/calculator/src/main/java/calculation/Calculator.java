@@ -14,7 +14,11 @@ public class Calculator {
 
         validateNegativeNumbers(splitted);
 
-        return StreamSupport.stream(Arrays.spliterator(splitted), false).mapToInt(Integer::parseInt).reduce(0, (a, b) -> a += b);
+        return StreamSupport
+                .stream(Arrays.spliterator(splitted), false)
+                .mapToInt(Integer::parseInt)
+                .filter(a -> a < 1000)
+                .reduce(0, (a, b) -> a += b);
     }
 
     private boolean checkIfEmpty(String delimiterAndNumbers) {
