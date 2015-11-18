@@ -43,4 +43,10 @@ public class CalculatorTest {
     public void shouldSupportDefaultAndCustomDelimiters() {
         assertEquals(2 + 3 + 4 + 5, calculator.add("//;\n2;3\n4,5"));
     }
+
+    @Test
+    public void shouldSupportMultiSymbolDelimiters() {
+        assertEquals(2 + 3 + 4, calculator.add("//-d\n2-d3-d4"));
+    }
+
 }
