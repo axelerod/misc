@@ -49,4 +49,9 @@ public class CalculatorTest {
         assertEquals(2 + 3 + 4, calculator.add("//-d\n2-d3-d4"));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldThrowAnExceptionInCaseNegativeNumberIsPassed() {
+        calculator.add("3,-1");
+    }
+
 }
