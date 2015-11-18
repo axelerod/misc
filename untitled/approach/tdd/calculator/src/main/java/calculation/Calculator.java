@@ -13,17 +13,41 @@ public class Calculator {
 
         if (delimiterAndNumbers.isEmpty()) return 0;
 
-        String effectiveDelimiters = DEFAULT_DELIMITERS;
-        String delimitedNumbers = delimiterAndNumbers;
-
-        if (delimiterAndNumbers.contains("//")) {
-            String customDelimiter = delimiterAndNumbers.substring(2,3);
-            effectiveDelimiters = DEFAULT_DELIMITERS + "|" + customDelimiter;
-            delimitedNumbers = delimiterAndNumbers.substring(4);
-        }
-
-        String[] splitted = delimitedNumbers.split(effectiveDelimiters);
+        String[] splitted = split(delimiterAndNumbers);
 
         return StreamSupport.stream(Arrays.spliterator(splitted), false).mapToInt(Integer::parseInt).reduce(0, (a, b) -> a += b);
+    }
+
+    private String[] split(String delimiterAndNumbers) {
+        return getSplitter(delimiterAndNumbers).split();
+    }
+
+    private Splitter getSplitter(String delimiterAndNumbers) {
+        return new Splitter(delimiterAndNumbers);
+    }
+
+    private class Splitter {
+        private String delimiterAndNumbers;
+
+        public Splitter(String delimiterAndNumbers) {
+            this.delimiterAndNumbers = delimiterAndNumbers;
+        }
+
+        public String[] split() {
+            String effectiveDelimiters;
+            String delimitedNumbers;
+
+            if (delimiterAndNumbers.contains("//")) {
+                String customDelimiter = delimiterAndNumbers.substring(2,3);
+                effectiveDelimiters = DEFAULT_DELIMITERS + "|" + customDelimiter;
+                delimitedNumbers = delimiterAndNumbers.substring(4);
+                return delimitedNumbers.split(effectiveDelimiters);
+            } else {
+                effectiveDelimiters = DEFAULT_DELIMITERS;
+                delimitedNumbers = delimiterAndNumbers;
+                return delimitedNumbers.split(effectiveDelimiters);
+            }
+
+        }
     }
 }
