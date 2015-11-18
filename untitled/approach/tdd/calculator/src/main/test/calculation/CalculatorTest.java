@@ -54,4 +54,9 @@ public class CalculatorTest {
         calculator.add("3,-1");
     }
 
+    @Test
+    public void numbersGreatedThen1000ShouldBeIgnored() {
+        assertEquals(2 + 3 + 4, calculator.add("2,3,1001,4"));
+    }
+
 }
