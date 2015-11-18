@@ -10,14 +10,17 @@ public class Calculator {
 
         if (delimiterAndNumbers.isEmpty()) return 0;
 
-        String oneCharDelimiter = ",|\\v";
+        String defaultDelimiters = ",|\\v";
+        String effectiveDelimiters = defaultDelimiters;
+        String oneCharDelimiter = "";
         String delimitedNumbers = delimiterAndNumbers;
         if (delimiterAndNumbers.contains("//")) {
             oneCharDelimiter = delimiterAndNumbers.substring(2,3);
+            effectiveDelimiters = defaultDelimiters + "|" + oneCharDelimiter;
             delimitedNumbers = delimiterAndNumbers.substring(4);
         }
 
-        String[] splitted = delimitedNumbers.split(oneCharDelimiter);
+        String[] splitted = delimitedNumbers.split(effectiveDelimiters);
 
         return StreamSupport.stream(Arrays.spliterator(splitted), false).mapToInt(Integer::parseInt).reduce(0, (a, b) -> a += b);
     }
