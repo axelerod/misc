@@ -33,4 +33,9 @@ public class CalculatorTest {
     public void shouldAcceptBothNewLineAndCommaCharacters() {
         assertEquals(9, calculator.add("2\n3,4"));
     }
+
+    @Test
+    public void shouldBeAbleToPassDelimiter() {
+        assertEquals(9, calculator.add("//;\n2;3;4"));
+    }
 }
