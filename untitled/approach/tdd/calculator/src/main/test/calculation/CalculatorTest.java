@@ -35,7 +35,7 @@ public class CalculatorTest {
     }
 
     @Test
-    public void shouldBeAbleToPassDelimiter() {
+    public void shouldBeAbleToPassCustomDelimiter() {
         assertEquals(9, calculator.add("//;\n2;3;4"));
     }
 }
